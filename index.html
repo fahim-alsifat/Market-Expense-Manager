@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Expense Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="logo-container">
+                    <i class="fas fa-calculator header-icon"></i>
+                </div>
+                <div class="title-container">
+                    <h1>Market Expense Manager</h1>
+                    <p class="tagline">Track. Budget. Save.</p>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="budget-section">
+                <h2>Budget Management</h2>
+                <div class="budget-controls">
+                    <div class="input-group">
+                        <label for="budget">Set Budget</label>
+                        <input type="number" id="budget" placeholder="Enter your budget" min="0" step="0.01">
+                    </div>
+                    <button id="setBudget" class="btn primary">Set Budget</button>
+                </div>
+                <div class="budget-display">
+                    <div class="budget-card">
+                        <h3>Total Budget</h3>
+                        <p id="totalBudget">৳ 0.00</p>
+                    </div>
+                    <div class="budget-card">
+                        <h3>Total Expenses</h3>
+                        <p id="totalExpenses">৳ 0.00</p>
+                    </div>
+                    <div class="budget-card">
+                        <h3>Remaining Cash</h3>
+                        <p id="remainingCash">৳ 0.00</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="expense-form-section">
+                <h2>Add Expense</h2>
+                <form id="expenseForm">
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="storeNameInput">Store Name</label>
+                            <input type="text" id="storeNameInput" list="storeNames" placeholder="Enter store name (optional)">
+                            <datalist id="storeNames"></datalist>
+                        </div>
+                        <div class="input-group">
+                            <label for="priceInput">Price *</label>
+                            <input type="number" id="priceInput" placeholder="Enter price" min="0" step="0.01" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="quantityInput">Quantity</label>
+                            <input type="number" id="quantityInput" placeholder="Default: 1" min="1" value="1">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="itemNameInput">Item Name (optional)</label>
+                            <input type="text" id="itemNameInput" placeholder="What did you buy?">
+                        </div>
+                        <div class="input-group">
+                            <label for="categoryInput">Category (optional)</label>
+                            <select id="categoryInput">
+                                <option value="">Select Category</option>
+                                <option value="Groceries">Groceries</option>
+                                <option value="Electronics">Electronics</option>
+                                <option value="Clothing">Clothing</option>
+                                <option value="Food">Food</option>
+                                <option value="Transportation">Transportation</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn primary">Add Expense</button>
+                        <button type="button" id="resetButton" class="btn secondary">Reset</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="expense-log-section">
+                <h2>Expense Log</h2>
+                <div class="expense-table-container">
+                    <table class="expense-table">
+                        <thead>
+                            <tr>
+                                <th>Store</th>
+                                <th>Item</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="expenseTableBody">
+                            <!-- Expense entries will be added here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Market Expense Manager</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
